@@ -53,3 +53,6 @@ with open(csvpath, newline="") as csvfile:
 
     net_average = (net_change_one + net_change_two) / (2)  
     print(f"Average Change: ")
+
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+Output = os.path.join("..Resources\Output.txt")
