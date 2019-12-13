@@ -54,5 +54,18 @@ with open(csvpath, newline="") as csvfile:
     net_average = (net_change_one + net_change_two) / (2)  
     print(f"Average Change: ")
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
-Output = os.path.join("..Resources\Output.txt")
+
+#Writing Output
+import csv 
+with open("PyBankOutput.txt", "w") as csvfile:
+    csvwriter = csv.writer(csvfile, delimiter=",")
+
+    csvfile.write("Total Months:" + str(total_months))
+    csvfile.write("\n")
+    csvfile.write("Total: $" + str(total_net))
+    csvfile.write("\n")
+    csvfile.write("Greatest Increase in Profits: " + str(max_month) + " $" + str(max))
+    csvfile.write("\n")
+    csvfile.write("Greatest Decrease in Profits: $" + str(min_month) + str(min))
+    csvfile.write("\n")
+    csvfile.write("Average Change: ")
