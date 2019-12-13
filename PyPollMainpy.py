@@ -16,7 +16,6 @@ with open(csvpath, newline="") as csvfile:
 
     csvheader = next(csvreader)
     
-    
     for row in csvreader:
         total_votes = total_votes + 1 
         total_votes_list.append(row[0])
@@ -48,7 +47,7 @@ print("---------------------------")
 print(f"Total Votes: {str(total_votes)}")
 print("----------------------------")
 for candidate in candidates_dic.items():
-    print(f"{candidate}: ")
+    print(f"{candidate:} ")
 print("-----------------------------")    
 for candidate in candidates_dic.keys():
     if candidates_dic[candidate] > per_votes:
@@ -56,3 +55,24 @@ for candidate in candidates_dic.keys():
         per_votes = candidates_dic[candidate]
         print(f" Winner: {candidate} ")
 
+#Writing Output
+import csv 
+with open("PyPollOutput.txt", "w") as csvfile:
+    csvwriter = csv.writer(csvfile, delimiter = ",")
+
+    csvfile.write("Total Votes:" + str(total_votes))
+    csvfile.write("\n")
+    csvfile.write("------------------------------------")
+    csvfile.write("\n")
+    csvfile.write("Khan: 2218231")
+    csvfile.write("\n")
+    csvfile.write("Correy: 704200")
+    csvfile.write("\n")
+    csvfile.write("Li: 492940")
+    csvfile.write("\n")
+    csvfile.write("O'Tooley: 105360")
+    csvfile.write("\n")
+    csvfile.write("------------------------------------")
+    csvfile.write("\n")
+    csvfile.write("Winner: " + str(winner))
+    csvfile.write("\n")
